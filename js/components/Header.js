@@ -15,6 +15,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
     const menuItems = [
         { name: 'Home', icon: 'fa-house' },
         { name: 'Colleges', icon: 'fa-building-columns' },
+        { name: 'Scholarships', icon: 'fa-award' }, // NEW: Added Scholarships
         { name: 'Exams', icon: 'fa-file-pen' },
         { name: 'Courses', icon: 'fa-graduation-cap' },
         { name: 'Predictor', icon: 'fa-chart-line' },

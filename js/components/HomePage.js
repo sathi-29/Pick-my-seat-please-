@@ -5,7 +5,8 @@ const HomePage = ({ setCurrentPage }) => {
     const [animatedStats, setAnimatedStats] = useState({
         students: 0,
         colleges: 0,
-        success: 0
+        success: 0,
+        scholarships: 0
     });
     
     useEffect(() => {
@@ -37,6 +38,12 @@ const HomePage = ({ setCurrentPage }) => {
         animateValue(0, 92, 1800, (val) => {
             setAnimatedStats(prev => ({...prev, success: val}));
         });
+        
+        // Scholarships count
+        const scholarshipsCount = window.SCHOLARSHIPS_DATA ? window.SCHOLARSHIPS_DATA.length : 15;
+        animateValue(0, scholarshipsCount, 2000, (val) => {
+            setAnimatedStats(prev => ({...prev, scholarships: val}));
+        });
     }, []);
     
     // Render statistics
@@ -58,6 +65,12 @@ const HomePage = ({ setCurrentPage }) => {
             label: "Success Rate", 
             color: "text-accent",
             icon: "✨"
+        },
+        { 
+            value: animatedStats.scholarships + "+", 
+            label: "Scholarships", 
+            color: "text-green-600",
+            icon: "💰"
         }
     ];
     
@@ -87,8 +100,8 @@ const HomePage = ({ setCurrentPage }) => {
                             </h1>
                             
                             <p className="text-xl text-gray-600 mb-8 max-w-2xl">
-                                Get personalized college recommendations, chat with seniors, 
-                                and create your action plan—all in one place.
+                                Get personalized college recommendations, discover scholarships, 
+                                chat with seniors, and create your action plan—all in one place.
                             </p>
                             
                             <div className="flex flex-wrap gap-4 mb-12">
@@ -113,7 +126,7 @@ const HomePage = ({ setCurrentPage }) => {
                             </div>
                             
                             {/* Statistics - FIXED */}
-                            <div className="grid grid-cols-3 gap-6 mt-12">
+                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
                                 {statistics.map((stat, index) => (
                                     <div key={index} className="text-center">
                                         <div className={`text-3xl md:text-4xl font-bold mb-2 ${stat.color} animate-count`}>
@@ -210,6 +223,154 @@ const HomePage = ({ setCurrentPage }) => {
                     </div>
                 </div>
             )}
+            
+            {/* Scholarships Preview Section */}
+            <div className="max-w-7xl mx-auto px-4 py-20">
+                <div className="text-center mb-12">
+                    <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                        Financial <span className="bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent">Support</span>
+                    </h2>
+                    <p className="text-gray-600 max-w-2xl mx-auto">
+                        Discover scholarships and financial aid opportunities to fund your education
+                    </p>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    {[
+                        {
+                            icon: 'fa-award',
+                            title: 'Government Scholarships',
+                            count: '25+',
+                            desc: 'Central and state government funded scholarships',
+                            color: 'from-blue-500 to-cyan-500'
+                        },
+                        {
+                            icon: 'fa-building',
+                            title: 'Private Scholarships',
+                            count: '50+',
+                            desc: 'Corporate and foundation scholarships',
+                            color: 'from-purple-500 to-pink-500'
+                        },
+                        {
+                            icon: 'fa-hand-holding-usd',
+                            title: 'Full Funding',
+                            count: '15+',
+                            desc: 'Complete tuition and living expense coverage',
+                            color: 'from-green-500 to-emerald-600'
+                        }
+                    ].map((item, idx) => (
+                        <div key={idx} className="glass p-8 rounded-2xl card-hover">
+                            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 bg-gradient-to-br ${item.color}`}>
+                                <i className={`fas ${item.icon} text-white text-2xl`}></i>
+                            </div>
+                            <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                            <div className="text-3xl font-bold text-gray-800 mb-2">{item.count}</div>
+                            <p className="text-gray-600">{item.desc}</p>
+                        </div>
+                    ))}
+                </div>
+                
+                <div className="text-center">
+                    <button 
+                        onClick={() => setCurrentPage('Scholarships')}
+                        className="group relative overflow-hidden rounded-xl px-12 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                    >
+                        <span className="relative z-10 flex items-center">
+                            Explore Scholarships
+                            <i className="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform"></i>
+                        </span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </button>
+                </div>
+            </div>
+            
+            {/* Success Stories Section */}
+            <div className="max-w-7xl mx-auto px-4 py-20">
+                <div className="text-center mb-12">
+                    <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                        Student <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Success Stories</span>
+                    </h2>
+                    <p className="text-gray-600 max-w-2xl mx-auto">
+                        See how ClgMetta helped students achieve their dreams
+                    </p>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {[
+                        {
+                            name: 'Rahul Sharma',
+                            college: 'RV College of Engineering',
+                            achievement: 'Received ₹2,00,000 scholarship',
+                            image: '👨‍💻',
+                            quote: 'ClgMetta helped me find the perfect college and scholarship!',
+                            color: 'from-blue-100 to-blue-50'
+                        },
+                        {
+                            name: 'Priya Patel',
+                            college: 'Christ University',
+                            achievement: '95% placement assistance',
+                            image: '👩‍🎓',
+                            quote: 'The senior chat feature gave me real insights about campus life.',
+                            color: 'from-purple-100 to-purple-50'
+                        },
+                        {
+                            name: 'Amit Kumar',
+                            college: 'PES University',
+                            achievement: 'Personalized action plan',
+                            image: '👨‍🔧',
+                            quote: 'The 60-second quiz accurately predicted my ideal stream!',
+                            color: 'from-green-100 to-green-50'
+                        }
+                    ].map((student, idx) => (
+                        <div key={idx} className="glass p-8 rounded-2xl card-hover">
+                            <div className={`absolute inset-0 ${student.color} rounded-2xl opacity-50`}></div>
+                            <div className="relative z-10">
+                                <div className="flex items-center mb-6">
+                                    <div className="text-4xl mr-4">{student.image}</div>
+                                    <div>
+                                        <h4 className="text-xl font-bold">{student.name}</h4>
+                                        <p className="text-gray-600 text-sm">{student.college}</p>
+                                    </div>
+                                </div>
+                                <p className="text-gray-700 mb-6 italic">"{student.quote}"</p>
+                                <div className="px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg inline-block">
+                                    <span className="text-primary font-semibold">{student.achievement}</span>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+            
+            {/* Call to Action */}
+            <div className="bg-gradient-to-r from-primary/5 via-secondary/5 to-accent/5 py-20">
+                <div className="max-w-4xl mx-auto px-4 text-center">
+                    <h2 className="text-4xl font-bold text-gray-800 mb-6">
+                        Ready to Find Your Perfect College?
+                    </h2>
+                    <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+                        Join thousands of students who found their dream colleges with ClgMetta
+                    </p>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button 
+                            onClick={() => setCurrentPage('Colleges')}
+                            className="px-12 py-4 gradient-primary text-white rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                        >
+                            <i className="fas fa-building-columns mr-2"></i>
+                            Browse Colleges
+                        </button>
+                        
+                        <button 
+                            onClick={() => setCurrentPage('Scholarships')}
+                            className="px-12 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-semibold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                        >
+                            <i className="fas fa-award mr-2"></i>
+                            Explore Scholarships
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

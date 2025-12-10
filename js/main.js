@@ -13,7 +13,6 @@ const App = () => {
         window.scrollTo(0, 0);
         setIsLoading(true);
         
-        // Simulate loading
         const timer = setTimeout(() => {
             setIsLoading(false);
         }, 300);
@@ -35,6 +34,8 @@ const App = () => {
                 return <HomePage setCurrentPage={setCurrentPage} />;
             case 'Colleges':
                 return <CollegesPage setCurrentPage={setCurrentPage} setSelectedCollegeId={setSelectedCollegeId} />;
+            case 'Scholarships': // NEW: Scholarships page
+                return <ScholarshipsPage setCurrentPage={setCurrentPage} />;
             case 'CollegeDetails':
                 return <CollegeDetailsPage setCurrentPage={setCurrentPage} collegeId={selectedCollegeId} />;
             case 'Exams':
