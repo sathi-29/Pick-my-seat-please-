@@ -1,89 +1,160 @@
-// Mock data for tuition centers
 const TUITIONS_DATA = [
     {
         id: 1,
-        name: 'Brilliant Minds Academy',
-        type: 'Offline',
-        address: '123 MG Road, Bengaluru, Karnataka 560001',
-        rating: 4.8,
-        reviews: 245,
-        fees: '₹15,000/month',
-        contact: '+91 9876543210',
-        email: 'contact@brilliantminds.com',
-        subjects: ['JEE Main', 'JEE Advanced', 'KCET', 'NEET'],
-        faculty: [
-            { name: 'Dr. Rajesh Kumar', qualification: 'PhD IIT Delhi', experience: '15+ years' },
-            { name: 'Ms. Priya Sharma', qualification: 'M.Tech IISc', experience: '10+ years' }
-        ],
-        facilities: ['Air Conditioned Classrooms', 'Library', 'Test Series', 'Doubt Sessions', 'Online Portal'],
-        timing: 'Weekdays: 4 PM - 8 PM, Weekends: 9 AM - 6 PM',
-        reviewsList: [
-            { name: 'Aarav Patel', rating: 5, comment: 'Excellent teaching methodology', date: '2024-01-10' },
-            { name: 'Sneha Reddy', rating: 4, comment: 'Good infrastructure but fees are high', date: '2024-01-05' },
-            { name: 'Rohit Verma', rating: 5, comment: 'Best faculty for JEE preparation', date: '2024-01-01' }
-        ],
-        coordinates: [12.9716, 77.5946],
-        distance: '2.5 km',
-        established: '2010',
-        studentsPlaced: '5000+',
-        successRate: '92%'
+        name: 'Dr. Rajesh Kumar',
+        subject: 'Mathematics',
+        experience: '15 Years',
+        rating: 4.9,
+        students: 1200,
+        fee: '₹800/hour',
+        qualification: 'PhD in Mathematics, IIT Delhi',
+        specialization: ['JEE Mains', 'JEE Advanced', 'Board Exams'],
+        availability: 'Mon-Sat',
+        mode: ['Online', 'Offline'],
+        location: 'Bengaluru',
+        demo: true
     },
     {
         id: 2,
-        name: 'Physics Wallah',
-        type: 'Online',
-        rating: 4.7,
-        reviews: 15000,
-        fees: '₹10,000/month',
-        subjects: ['JEE', 'NEET', 'Foundation'],
-        platform: 'PW App/Website',
-        icon: 'fa-laptop'
+        name: 'Prof. Anjali Sharma',
+        subject: 'Physics',
+        experience: '12 Years',
+        rating: 4.8,
+        students: 950,
+        fee: '₹750/hour',
+        qualification: 'M.Tech, IISc Bangalore',
+        specialization: ['NEET', 'JEE', 'KCET'],
+        location: 'Bengaluru'
     },
     {
         id: 3,
-        name: 'Career Point',
-        type: 'Offline',
-        rating: 4.5,
-        reviews: 890,
-        fees: '₹12,000/month',
-        subjects: ['KCET', 'COMEDK'],
-        location: 'Koramangala, Bengaluru',
-        distance: '4 km',
-        icon: 'fa-chalkboard'
+        name: 'Mr. Suresh Patel',
+        subject: 'Chemistry',
+        experience: '10 Years',
+        rating: 4.7,
+        students: 800,
+        fee: '₹700/hour',
+        location: 'Bengaluru'
     },
     {
         id: 4,
-        name: 'Unacademy',
-        type: 'Online',
+        name: 'Ms. Priya Reddy',
+        subject: 'Biology',
+        experience: '8 Years',
         rating: 4.6,
-        reviews: 12000,
-        fees: '₹8,000/month',
-        subjects: ['All Engineering', 'Medical'],
-        platform: 'Unacademy App',
-        icon: 'fa-globe'
+        students: 700,
+        fee: '₹650/hour',
+        location: 'Bengaluru'
     },
     {
         id: 5,
-        name: 'Sri Chaitanya',
-        type: 'Offline',
-        rating: 4.4,
-        reviews: 3400,
-        fees: '₹20,000/month',
-        subjects: ['IIT-JEE', 'Medical'],
-        location: 'Jayanagar, Bengaluru',
-        distance: '5 km',
-        icon: 'fa-school'
+        name: 'Prof. Kumar Swamy',
+        subject: 'Computer Science',
+        experience: '18 Years',
+        rating: 4.9,
+        students: 1500,
+        fee: '₹900/hour',
+        location: 'Bengaluru'
     },
     {
         id: 6,
-        name: 'Byju\'s',
-        type: 'Hybrid',
-        rating: 4.3,
-        reviews: 2100,
-        fees: '₹18,000/month',
-        subjects: ['Comprehensive'],
-        location: 'Multiple Centers',
-        icon: 'fa-graduation-cap'
+        name: 'Dr. Meena Singh',
+        subject: 'English',
+        experience: '14 Years',
+        rating: 4.8,
+        students: 1100,
+        fee: '₹600/hour',
+        location: 'Bengaluru'
+    },
+    {
+        id: 7,
+        name: 'Mr. Ravi Verma',
+        subject: 'Accountancy',
+        experience: '9 Years',
+        rating: 4.7,
+        students: 850,
+        fee: '₹550/hour',
+        location: 'Bengaluru'
+    },
+    {
+        id: 8,
+        name: 'Ms. Sunita Rao',
+        subject: 'Economics',
+        experience: '11 Years',
+        rating: 4.6,
+        students: 900,
+        fee: '₹600/hour',
+        location: 'Bengaluru'
+    },
+    {
+        id: 9,
+        name: 'Prof. Vikram Joshi',
+        subject: 'Statistics',
+        experience: '16 Years',
+        rating: 4.9,
+        students: 1200,
+        fee: '₹850/hour',
+        location: 'Bengaluru'
+    },
+    {
+        id: 10,
+        name: 'Ms. Neha Gupta',
+        subject: 'Commerce',
+        experience: '7 Years',
+        rating: 4.5,
+        students: 600,
+        fee: '₹500/hour',
+        location: 'Bengaluru'
+    },
+    {
+        id: 11,
+        name: 'Mr. Arun Kumar',
+        subject: 'Programming',
+        experience: '6 Years',
+        rating: 4.8,
+        students: 950,
+        fee: '₹800/hour',
+        location: 'Bengaluru'
+    },
+    {
+        id: 12,
+        name: 'Dr. Sanjay Mehta',
+        subject: 'Reasoning',
+        experience: '13 Years',
+        rating: 4.7,
+        students: 1000,
+        fee: '₹700/hour',
+        location: 'Bengaluru'
+    },
+    {
+        id: 13,
+        name: 'Ms. Radhika Iyer',
+        subject: 'GK & Current Affairs',
+        experience: '10 Years',
+        rating: 4.6,
+        students: 750,
+        fee: '₹450/hour',
+        location: 'Bengaluru'
+    },
+    {
+        id: 14,
+        name: 'Prof. Manoj Tiwari',
+        subject: 'Quantitative Aptitude',
+        experience: '15 Years',
+        rating: 4.9,
+        students: 1300,
+        fee: '₹750/hour',
+        location: 'Bengaluru'
+    },
+    {
+        id: 15,
+        name: 'Ms. Kavita Sharma',
+        subject: 'Verbal Ability',
+        experience: '8 Years',
+        rating: 4.7,
+        students: 800,
+        fee: '₹550/hour',
+        location: 'Bengaluru'
     }
 ];
 

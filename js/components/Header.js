@@ -6,39 +6,41 @@ const Header = ({ currentPage, setCurrentPage }) => {
     
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
+            setIsScrolled(window.scrollY > 10);
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
     
     const menuItems = [
-        { name: 'Home', icon: 'fa-home' },
+        { name: 'Home', icon: 'fa-house' },
         { name: 'Colleges', icon: 'fa-building-columns' },
         { name: 'Exams', icon: 'fa-file-pen' },
         { name: 'Courses', icon: 'fa-graduation-cap' },
-        { name: 'Predictor', icon: 'fa-calculator' },
-        { name: 'Tuition', icon: 'fa-chalkboard-teacher' },
+        { name: 'Predictor', icon: 'fa-chart-line' },
+        { name: 'Tuition', icon: 'fa-chalkboard-user' },
         { name: 'Articles', icon: 'fa-newspaper' }
     ];
     
     return (
-        <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass shadow-lg' : 'glass'}`}>
+        <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass shadow-lg py-2' : 'glass py-4'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center h-20">
+                <div className="flex justify-between items-center">
                     {/* Logo */}
                     <div 
                         className="flex items-center cursor-pointer group"
                         onClick={() => setCurrentPage('Home')}
                     >
-                        <div className="w-12 h-12 gradient-blue rounded-2xl flex items-center justify-center mr-3 group-hover:rotate-12 transition-transform duration-500">
-                            <i className="fas fa-university text-white text-2xl"></i>
+                        <div className="w-12 h-12 gradient-primary rounded-2xl flex items-center justify-center mr-3 group-hover:rotate-12 transition-transform duration-500">
+                            <i className="fas fa-graduation-cap text-white text-2xl"></i>
                         </div>
                         <div>
-                            <span className="text-3xl font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                            <span className="text-3xl font-black bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                                 ClgMetta
                             </span>
-                            <div className="text-xs text-gray-500 font-medium">Smart College Discovery</div>
+                            <div className="text-xs text-gray-500 font-medium">
+                                Smart College Discovery
+                            </div>
                         </div>
                     </div>
                     
@@ -48,10 +50,10 @@ const Header = ({ currentPage, setCurrentPage }) => {
                             <button
                                 key={item.name}
                                 onClick={() => setCurrentPage(item.name)}
-                                className={`px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
+                                className={`px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
                                     currentPage === item.name
-                                        ? 'gradient-blue text-white shadow-md'
-                                        : 'text-gray-600 hover:bg-blue-50 hover:text-blue-600'
+                                        ? 'gradient-primary text-white shadow-md'
+                                        : 'text-gray-600 hover:bg-primary/5 hover:text-primary'
                                 }`}
                             >
                                 <i className={`fas ${item.icon} mr-2`}></i>
@@ -61,13 +63,15 @@ const Header = ({ currentPage, setCurrentPage }) => {
                     </nav>
                     
                     {/* Login Button */}
-                    <button
-                        onClick={() => setCurrentPage('Login')}
-                        className="hidden lg:block gradient-purple text-white px-6 py-3 rounded-xl font-medium hover:shadow-md transition-all duration-300"
-                    >
-                        <i className="fas fa-user mr-2"></i>
-                        Login
-                    </button>
+                    <div className="hidden lg:flex items-center">
+                        <button
+                            onClick={() => setCurrentPage('Login')}
+                            className="gradient-primary text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+                        >
+                            <i className="fas fa-user mr-2"></i>
+                            Login
+                        </button>
+                    </div>
                     
                     {/* Mobile Menu Button */}
                     <button
@@ -80,7 +84,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
                 
                 {/* Mobile Menu */}
                 {isMenuOpen && (
-                    <div className="lg:hidden glass rounded-2xl p-4 mt-2 shadow-lg animate-slide-in-left">
+                    <div className="lg:hidden glass rounded-2xl p-4 mt-2 shadow-lg animate-slide-up">
                         {menuItems.map((item) => (
                             <button
                                 key={item.name}
@@ -90,7 +94,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
                                 }}
                                 className={`w-full text-left px-4 py-3 rounded-lg mb-1 flex items-center ${
                                     currentPage === item.name
-                                        ? 'gradient-blue text-white'
+                                        ? 'gradient-primary text-white'
                                         : 'text-gray-600 hover:bg-gray-50'
                                 }`}
                             >
@@ -98,12 +102,13 @@ const Header = ({ currentPage, setCurrentPage }) => {
                                 {item.name}
                             </button>
                         ))}
+                        
                         <button
                             onClick={() => {
                                 setCurrentPage('Login');
                                 setIsMenuOpen(false);
                             }}
-                            className="w-full gradient-purple text-white px-4 py-3 rounded-lg font-medium mt-2"
+                            className="w-full gradient-primary text-white px-4 py-3 rounded-lg font-semibold mt-2"
                         >
                             <i className="fas fa-user mr-2"></i>
                             Login

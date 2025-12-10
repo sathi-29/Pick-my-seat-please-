@@ -3,10 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClgMetta - Your College & Career Discovery Platform</title>
+    <title>ClgMetta - Smart College Discovery Platform</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#06b6d4',
+                        light: '#f8fafc',
+                        dark: '#1e293b'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'shimmer': 'shimmer 2s infinite',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'pulse-gentle': 'pulseGentle 4s ease-in-out infinite',
+                        'count': 'countUp 1s ease-out forwards',
+                        'slide-in-right': 'slideInRight 0.5s ease-out'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(99, 102, 241, 0.6)' }
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        pulseGentle: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.85' }
+                        },
+                        countUp: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideInRight: {
+                            '0%': { transform: 'translateX(30px)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     
     <!-- React and ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -15,24 +69,23 @@
     <!-- Babel for JSX -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
-    <!-- Font Awesome for icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Leaflet CSS for maps -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/components.css">
 </head>
-<body>
-    <div id="root"></div>
+<body class="bg-gradient-to-br from-light via-white to-blue-50">
+    <!-- Background Animation Container -->
+    <div id="particles-container"></div>
     
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <div id="root"></div>
     
     <!-- Data Files -->
     <script src="./data/colleges.js" type="text/javascript"></script>
@@ -45,6 +98,8 @@
     <script src="./js/components/Header.js" type="text/babel"></script>
     <script src="./js/components/Footer.js" type="text/babel"></script>
     <script src="./js/components/HomePage.js" type="text/babel"></script>
+    <script src="./js/components/CareerQuiz.js" type="text/babel"></script>
+    <script src="./js/components/SeniorChat.js" type="text/babel"></script>
     <script src="./js/components/CollegesPage.js" type="text/babel"></script>
     <script src="./js/components/CollegeDetailsPage.js" type="text/babel"></script>
     <script src="./js/components/ExamsPage.js" type="text/babel"></script>
@@ -56,7 +111,7 @@
     <script src="./js/components/TuitionDetailsPage.js" type="text/babel"></script>
     <script src="./js/components/ArticlesPage.js" type="text/babel"></script>
     <script src="./js/components/LoginPage.js" type="text/babel"></script>
-    <script src="./js/components/CareerGuidance.js" type="text/babel"></script>
+    <script src="./js/components/AnimatedBackground.js" type="text/babel"></script>
     
     <!-- Main App -->
     <script src="./js/main.js" type="text/babel"></script>

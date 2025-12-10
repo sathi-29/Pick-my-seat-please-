@@ -6,12 +6,30 @@ const App = () => {
     const [selectedExamId, setSelectedExamId] = useState(1);
     const [selectedCourseId, setSelectedCourseId] = useState(1);
     const [selectedTuitionId, setSelectedTuitionId] = useState(1);
+    const [isLoading, setIsLoading] = useState(false);
     
     useEffect(() => {
+        // Scroll to top on page change
         window.scrollTo(0, 0);
+        setIsLoading(true);
+        
+        // Simulate loading
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 300);
+        
+        return () => clearTimeout(timer);
     }, [currentPage]);
     
     const renderPage = () => {
+        if (isLoading) {
+            return (
+                <div className="min-h-screen flex items-center justify-center">
+                    <div className="loader"></div>
+                </div>
+            );
+        }
+        
         switch(currentPage) {
             case 'Home':
                 return <HomePage setCurrentPage={setCurrentPage} />;
@@ -43,13 +61,19 @@ const App = () => {
     };
     
     return (
-        <div>
+        <div className="relative">
             {currentPage !== 'Login' && <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />}
-            {renderPage()}
+            <div className={currentPage !== 'Login' ? "pt-28" : ""}>
+                {renderPage()}
+            </div>
             {currentPage !== 'Login' && <Footer setCurrentPage={setCurrentPage} />}
         </div>
     );
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+// Render the app
+const rootElement = document.getElementById('root');
+if (rootElement) {
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(<App />);
+}

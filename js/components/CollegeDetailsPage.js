@@ -15,7 +15,8 @@ const CollegeDetailsPage = ({ setCurrentPage, collegeId }) => {
             placement: '92%',
             avgPackage: '₹8.5 LPA',
             highestPackage: '₹45 LPA',
-            image: '🏛️'
+            image: '🏛️',
+            verified: { trustScore: 92 }
         };
     
     const generateSeats = () => {
@@ -106,6 +107,11 @@ const CollegeDetailsPage = ({ setCurrentPage, collegeId }) => {
                                     <span className="font-bold">{college.rating}</span>
                                     <span className="text-gray-500 text-sm ml-1">/5.0</span>
                                 </div>
+                                {college.verified && (
+                                    <span className="ml-4 px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+                                        <i className="fas fa-check-circle mr-1"></i>Trust Score: {college.verified.trustScore}%
+                                    </span>
+                                )}
                             </div>
                         </div>
                         <div className="mt-4 lg:mt-0">
@@ -144,7 +150,7 @@ const CollegeDetailsPage = ({ setCurrentPage, collegeId }) => {
                 {/* Tabs */}
                 <div className="glass rounded-3xl p-8 mb-8">
                     <div className="flex flex-wrap gap-2 mb-8">
-                        {['overview', 'courses', 'seat-booking', 'placement', 'reviews', 'location', 'facilities'].map((tab) => (
+                        {['overview', 'action-plan', 'seat-booking', 'seniors', 'placement', 'reviews', 'location', 'facilities'].map((tab) => (
                             <button
                                 key={tab}
                                 onClick={() => setActiveTab(tab)}
@@ -179,28 +185,125 @@ const CollegeDetailsPage = ({ setCurrentPage, collegeId }) => {
                                         </ul>
                                     </div>
                                     <div>
-                                        <h4 className="font-bold mb-3">Basic Information</h4>
+                                        <h4 className="font-bold mb-3">Data Sources</h4>
                                         <div className="space-y-3">
-                                            <div className="flex justify-between">
-                                                <span className="text-gray-600">Established</span>
-                                                <span className="font-medium">{college.founded}</span>
-                                            </div>
-                                            <div className="flex justify-between">
-                                                <span className="text-gray-600">Campus Size</span>
-                                                <span className="font-medium">{college.campusSize}</span>
-                                            </div>
-                                            <div className="flex justify-between">
-                                                <span className="text-gray-600">Accreditation</span>
-                                                <span className="font-medium">{college.accreditation || 'NAAC A'}</span>
-                                            </div>
-                                            <div className="flex justify-between">
-                                                <span className="text-gray-600">Total Seats</span>
-                                                <span className="font-medium">{college.totalSeats || 1800}</span>
-                                            </div>
+                                            {(college.dataSources || ['Official College Website', 'NAAC Accreditation', 'AICTE Approved']).map((source, idx) => (
+                                                <div key={idx} className="flex items-center">
+                                                    <i className="fas fa-check-circle text-green-500 mr-3"></i>
+                                                    <span>{source}</span>
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        )}
+                        
+                        {activeTab === 'action-plan' && (
+                            <div className="space-y-6">
+                                <div className="flex justify-between items-center mb-6">
+                                    <h3 className="text-2xl font-bold">Your Action Plan</h3>
+                                    <button className="px-4 py-2 bg-green-500 text-white rounded-lg font-medium">
+                                        <i className="fas fa-calendar-check mr-2"></i>
+                                        Add to Calendar
+                                    </button>
+                                </div>
+                                
+                                {/* Timeline */}
+                                <div className="relative">
+                                    <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-blue-200 ml-6"></div>
+                                    
+                                    {[
+                                        { day: 'Today', title: 'Check Eligibility', desc: 'Verify 12th marks & documents', status: 'current' },
+                                        { day: 'Tomorrow', title: 'Gather Documents', desc: '10th/12th marks, photo, ID proof', status: 'pending' },
+                                        { day: 'Mar 15', title: 'Application Fee', desc: 'Pay ₹500 via UPI/Card', status: 'pending' },
+                                        { day: 'Mar 20', title: 'Submit Form', desc: 'Final review & submission', status: 'pending' },
+                                        { day: 'Apr 10', title: 'Admit Card', desc: 'Download from portal', status: 'pending' },
+                                        { day: 'Apr 18', title: 'Entrance Exam', desc: 'KCET 2025', status: 'pending' }
+                                    ].map((step, idx) => (
+                                        <div key={idx} className="relative mb-8 ml-12">
+                                            <div className={`absolute -left-12 top-0 w-12 h-12 rounded-full flex items-center justify-center ${
+                                                step.status === 'current' ? 'gradient-blue text-white' : 
+                                                step.status === 'pending' ? 'bg-gray-100' : 'bg-green-100 text-green-800'
+                                            }`}>
+                                                {step.status === 'current' ? <i className="fas fa-play"></i> :
+                                                 step.status === 'pending' ? idx + 1 : <i className="fas fa-check"></i>}
+                                            </div>
+                                            <div className="glass p-4 rounded-xl">
+                                                <div className="flex justify-between items-center">
+                                                    <div>
+                                                        <span className="text-sm font-medium text-gray-500">{step.day}</span>
+                                                        <h4 className="font-bold mt-1">{step.title}</h4>
+                                                        <p className="text-sm text-gray-600 mt-1">{step.desc}</p>
+                                                    </div>
+                                                    {step.status === 'current' && (
+                                                        <button className="px-3 py-1 bg-blue-100 text-blue-800 rounded-lg text-sm">
+                                                            Start
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                                
+                                {/* Document Checklist */}
+                                <div className="glass p-6 rounded-xl">
+                                    <h4 className="font-bold text-lg mb-4">Required Documents</h4>
+                                    <div className="space-y-3">
+                                        {[
+                                            { name: '10th Marks Card', format: 'PDF/Scan', size: 'Max 2MB', mandatory: true },
+                                            { name: '12th Marks Card', format: 'PDF/Scan', size: 'Max 2MB', mandatory: true },
+                                            { name: 'Passport Photo', format: 'JPG/PNG', size: '50KB', mandatory: true },
+                                            { name: 'Signature', format: 'JPG/PNG', size: '50KB', mandatory: true },
+                                            { name: 'Caste Certificate', format: 'PDF', size: 'Max 2MB', mandatory: false },
+                                            { name: 'Income Certificate', format: 'PDF', size: 'Max 2MB', mandatory: false }
+                                        ].map((doc, idx) => (
+                                            <div key={idx} className="flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg">
+                                                <div className="flex items-center">
+                                                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center mr-3 ${
+                                                        doc.mandatory ? 'bg-red-100 text-red-600' : 'bg-blue-100 text-blue-600'
+                                                    }`}>
+                                                        <i className="fas fa-file"></i>
+                                                    </div>
+                                                    <div>
+                                                        <div className="font-medium">{doc.name}</div>
+                                                        <div className="text-sm text-gray-500">{doc.format} • {doc.size}</div>
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-center">
+                                                    <button className="px-3 py-1 bg-blue-100 text-blue-800 rounded-lg text-sm mr-2">
+                                                        Sample
+                                                    </button>
+                                                    <button className="px-3 py-1 gradient-blue text-white rounded-lg text-sm">
+                                                        Upload
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                
+                                {/* Scholarship Alert */}
+                                <div className="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 p-4 rounded-xl">
+                                    <div className="flex items-center">
+                                        <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                                            <i className="fas fa-gift text-green-600"></i>
+                                        </div>
+                                        <div>
+                                            <h5 className="font-bold">Scholarship Available!</h5>
+                                            <p className="text-sm text-gray-600">You qualify for 3 scholarships worth ₹2,00,000</p>
+                                        </div>
+                                        <button className="ml-auto px-4 py-2 gradient-green text-white rounded-lg font-medium">
+                                            Check
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        
+                        {activeTab === 'seniors' && (
+                            <SeniorChat collegeId={collegeId} />
                         )}
                         
                         {activeTab === 'seat-booking' && (
