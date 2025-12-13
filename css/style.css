@@ -353,3 +353,44 @@ select option {
     border-radius: 12px;
     overflow: hidden;
 }
+/* Fix button visibility */
+button:not(:disabled) {
+    opacity: 1 !important;
+}
+
+/* Fix course card buttons */
+.bg-white button {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+    color: white !important;
+    border: none !important;
+}
+
+/* Ensure text is visible */
+.text-gray-700 {
+    color: #374151 !important;
+}
+
+.text-gray-600 {
+    color: #4b5563 !important;
+}
+
+/* Fix header transparency */
+header {
+    background: white !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Fix map container */
+.map-container {
+    height: 400px;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+/* Ensure images are visible */
+img {
+    opacity: 1 !important;
+}

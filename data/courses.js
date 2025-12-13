@@ -10,18 +10,24 @@ const COURSES_DATA = [
         description: 'Learn programming, algorithms, and software development',
         subjects: ['Programming', 'Data Structures', 'Algorithms', 'Database Management'],
         category: 'Engineering',
-        demand: 'High'
+        demand: 'High',
+        popularity: 95,
+        futureScope: 'Excellent',
+        entranceExams: ['JEE Mains', 'KCET', 'COMEDK'],
+        skills: ['Coding', 'Problem Solving', 'Logical Thinking']
     },
     {
         id: 2,
-        name: 'Electronics & Communication',
+        name: 'Electronics & Communication Engineering',
         duration: '4 Years',
         fees: '₹3.2L/year',
         eligibility: '10+2 with Physics, Chemistry, Maths',
         colleges: 40,
         avgSalary: '₹7.5 LPA',
+        description: 'Study electronic devices, circuits, and communication systems',
         category: 'Engineering',
-        demand: 'High'
+        demand: 'High',
+        popularity: 85
     },
     {
         id: 3,
@@ -31,8 +37,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Physics, Chemistry, Maths',
         colleges: 42,
         avgSalary: '₹6.8 LPA',
+        description: 'Design and analysis of mechanical systems',
         category: 'Engineering',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 80
     },
     {
         id: 4,
@@ -42,30 +50,36 @@ const COURSES_DATA = [
         eligibility: '10+2 with Physics, Chemistry, Maths',
         colleges: 38,
         avgSalary: '₹6.5 LPA',
+        description: 'Design and construction of infrastructure',
         category: 'Engineering',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 75
     },
     {
         id: 5,
-        name: 'Information Science',
+        name: 'Information Science Engineering',
         duration: '4 Years',
         fees: '₹3.6L/year',
         eligibility: '10+2 with Maths/Computer Science',
         colleges: 35,
         avgSalary: '₹9.0 LPA',
+        description: 'Information systems and data management',
         category: 'Engineering',
-        demand: 'High'
+        demand: 'High',
+        popularity: 90
     },
     {
         id: 6,
-        name: 'Artificial Intelligence',
+        name: 'Artificial Intelligence & Machine Learning',
         duration: '4 Years',
         fees: '₹4.0L/year',
         eligibility: '10+2 with Maths, 75%+',
         colleges: 25,
         avgSalary: '₹12 LPA',
+        description: 'AI algorithms and machine learning models',
         category: 'Engineering',
-        demand: 'Very High'
+        demand: 'Very High',
+        popularity: 98
     },
     {
         id: 7,
@@ -75,8 +89,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Maths/Statistics',
         colleges: 28,
         avgSalary: '₹11 LPA',
+        description: 'Data analysis and predictive modeling',
         category: 'Engineering',
-        demand: 'Very High'
+        demand: 'Very High',
+        popularity: 96
     },
     {
         id: 8,
@@ -86,8 +102,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Computer Science',
         colleges: 22,
         avgSalary: '₹10 LPA',
+        description: 'Network security and ethical hacking',
         category: 'Engineering',
-        demand: 'High'
+        demand: 'High',
+        popularity: 92
     },
     {
         id: 9,
@@ -97,8 +115,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Physics, Maths',
         colleges: 20,
         avgSalary: '₹9.5 LPA',
+        description: 'Robotics systems and industrial automation',
         category: 'Engineering',
-        demand: 'High'
+        demand: 'High',
+        popularity: 88
     },
     {
         id: 10,
@@ -108,8 +128,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology/Chemistry',
         colleges: 30,
         avgSalary: '₹7.2 LPA',
+        description: 'Biological processes for industrial applications',
         category: 'Engineering',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 82
     },
     {
         id: 11,
@@ -119,8 +141,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Chemistry, Maths',
         colleges: 32,
         avgSalary: '₹7.0 LPA',
+        description: 'Chemical processes and manufacturing',
         category: 'Engineering',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 78
     },
     {
         id: 12,
@@ -130,8 +154,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Physics, Maths',
         colleges: 15,
         avgSalary: '₹8.0 LPA',
+        description: 'Aircraft design and aerospace technology',
         category: 'Engineering',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 85
     },
     {
         id: 13,
@@ -141,8 +167,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Physics, Maths',
         colleges: 25,
         avgSalary: '₹6.5 LPA',
+        description: 'Automotive design and manufacturing',
         category: 'Engineering',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 80
     },
     {
         id: 14,
@@ -152,8 +180,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Physics, Maths',
         colleges: 36,
         avgSalary: '₹6.8 LPA',
+        description: 'Electrical systems and power generation',
         category: 'Engineering',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 77
     },
     {
         id: 15,
@@ -163,8 +193,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology/Physics',
         colleges: 18,
         avgSalary: '₹7.5 LPA',
+        description: 'Medical equipment and healthcare technology',
         category: 'Engineering',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 83
     },
     {
         id: 16,
@@ -174,8 +206,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology, NEET Qualified',
         colleges: 25,
         avgSalary: '₹15 LPA',
+        description: 'Doctor of Medicine',
         category: 'Medical',
-        demand: 'Very High'
+        demand: 'Very High',
+        popularity: 99
     },
     {
         id: 17,
@@ -185,8 +219,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology, NEET',
         colleges: 20,
         avgSalary: '₹10 LPA',
+        description: 'Bachelor of Dental Surgery',
         category: 'Medical',
-        demand: 'High'
+        demand: 'High',
+        popularity: 90
     },
     {
         id: 18,
@@ -196,8 +232,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Chemistry/Biology',
         colleges: 35,
         avgSalary: '₹5.5 LPA',
+        description: 'Pharmaceutical sciences',
         category: 'Medical',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 85
     },
     {
         id: 19,
@@ -207,8 +245,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology',
         colleges: 30,
         avgSalary: '₹4.5 LPA',
+        description: 'Nursing and patient care',
         category: 'Medical',
-        demand: 'High'
+        demand: 'High',
+        popularity: 88
     },
     {
         id: 20,
@@ -218,8 +258,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology, NEET',
         colleges: 15,
         avgSalary: '₹6 LPA',
+        description: 'Bachelor of Ayurvedic Medicine',
         category: 'Medical',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 82
     },
     {
         id: 21,
@@ -229,8 +271,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology, NEET',
         colleges: 12,
         avgSalary: '₹5.5 LPA',
+        description: 'Bachelor of Homeopathic Medicine',
         category: 'Medical',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 80
     },
     {
         id: 22,
@@ -240,8 +284,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology',
         colleges: 28,
         avgSalary: '₹5.0 LPA',
+        description: 'Physical therapy and rehabilitation',
         category: 'Medical',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 83
     },
     {
         id: 23,
@@ -251,8 +297,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream',
         colleges: 40,
         avgSalary: '₹6 LPA',
+        description: 'Business management and administration',
         category: 'Commerce',
-        demand: 'High'
+        demand: 'High',
+        popularity: 90
     },
     {
         id: 24,
@@ -262,8 +310,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Commerce',
         colleges: 50,
         avgSalary: '₹4.5 LPA',
+        description: 'Commerce and accounting',
         category: 'Commerce',
-        demand: 'High'
+        demand: 'High',
+        popularity: 88
     },
     {
         id: 25,
@@ -273,8 +323,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Commerce, 75%+',
         colleges: 30,
         avgSalary: '₹5.5 LPA',
+        description: 'Advanced commerce studies',
         category: 'Commerce',
-        demand: 'High'
+        demand: 'High',
+        popularity: 85
     },
     {
         id: 26,
@@ -284,8 +336,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream, CLAT',
         colleges: 15,
         avgSalary: '₹8 LPA',
+        description: 'Integrated business and law',
         category: 'Law',
-        demand: 'High'
+        demand: 'High',
+        popularity: 87
     },
     {
         id: 27,
@@ -295,8 +349,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream, CLAT',
         colleges: 18,
         avgSalary: '₹7.5 LPA',
+        description: 'Integrated arts and law',
         category: 'Law',
-        demand: 'High'
+        demand: 'High',
+        popularity: 86
     },
     {
         id: 28,
@@ -306,8 +362,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Maths/Computer',
         colleges: 35,
         avgSalary: '₹7 LPA',
+        description: 'Computer science fundamentals',
         category: 'Science',
-        demand: 'High'
+        demand: 'High',
+        popularity: 92
     },
     {
         id: 29,
@@ -317,8 +375,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Maths',
         colleges: 40,
         avgSalary: '₹4 LPA',
+        description: 'Pure and applied mathematics',
         category: 'Science',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 75
     },
     {
         id: 30,
@@ -328,8 +388,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Physics',
         colleges: 38,
         avgSalary: '₹4.2 LPA',
+        description: 'Physics and its applications',
         category: 'Science',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 73
     },
     {
         id: 31,
@@ -339,8 +401,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Chemistry',
         colleges: 36,
         avgSalary: '₹4.3 LPA',
+        description: 'Chemistry and chemical processes',
         category: 'Science',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 74
     },
     {
         id: 32,
@@ -350,8 +414,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology',
         colleges: 32,
         avgSalary: '₹4.5 LPA',
+        description: 'Biological sciences',
         category: 'Science',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 76
     },
     {
         id: 33,
@@ -361,8 +427,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology/Chemistry',
         colleges: 25,
         avgSalary: '₹5.5 LPA',
+        description: 'Biotechnology applications',
         category: 'Science',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 80
     },
     {
         id: 34,
@@ -372,8 +440,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology',
         colleges: 22,
         avgSalary: '₹5.2 LPA',
+        description: 'Microorganisms and their applications',
         category: 'Science',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 79
     },
     {
         id: 35,
@@ -383,8 +453,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology/Agriculture',
         colleges: 20,
         avgSalary: '₹4.8 LPA',
+        description: 'Agricultural sciences',
         category: 'Agriculture',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 82
     },
     {
         id: 36,
@@ -394,8 +466,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology',
         colleges: 15,
         avgSalary: '₹4.5 LPA',
+        description: 'Horticulture and gardening',
         category: 'Agriculture',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 78
     },
     {
         id: 37,
@@ -405,8 +479,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology',
         colleges: 12,
         avgSalary: '₹4.2 LPA',
+        description: 'Forest management and conservation',
         category: 'Agriculture',
-        demand: 'Low'
+        demand: 'Low',
+        popularity: 70
     },
     {
         id: 38,
@@ -416,8 +492,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream',
         colleges: 18,
         avgSalary: '₹3.5 LPA',
+        description: 'Fine arts and visual arts',
         category: 'Arts',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 75
     },
     {
         id: 39,
@@ -427,8 +505,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream',
         colleges: 45,
         avgSalary: '₹3.8 LPA',
+        description: 'English literature and language',
         category: 'Arts',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 77
     },
     {
         id: 40,
@@ -438,8 +518,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream',
         colleges: 40,
         avgSalary: '₹4.5 LPA',
+        description: 'Economics and economic theory',
         category: 'Arts',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 80
     },
     {
         id: 41,
@@ -449,8 +531,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream',
         colleges: 25,
         avgSalary: '₹4.8 LPA',
+        description: 'Psychology and human behavior',
         category: 'Arts',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 82
     },
     {
         id: 42,
@@ -460,8 +544,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream',
         colleges: 30,
         avgSalary: '₹4.0 LPA',
+        description: 'Society and social behavior',
         category: 'Arts',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 76
     },
     {
         id: 43,
@@ -471,8 +557,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream',
         colleges: 35,
         avgSalary: '₹3.5 LPA',
+        description: 'Historical studies',
         category: 'Arts',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 74
     },
     {
         id: 44,
@@ -482,8 +570,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream',
         colleges: 28,
         avgSalary: '₹4.2 LPA',
+        description: 'Political systems and governance',
         category: 'Arts',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 78
     },
     {
         id: 45,
@@ -493,8 +583,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream, Design Entrance',
         colleges: 12,
         avgSalary: '₹6.5 LPA',
+        description: 'Design and visual communication',
         category: 'Design',
-        demand: 'High'
+        demand: 'High',
+        popularity: 85
     },
     {
         id: 46,
@@ -504,8 +596,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Maths, NATA',
         colleges: 15,
         avgSalary: '₹7 LPA',
+        description: 'Architecture and building design',
         category: 'Architecture',
-        demand: 'High'
+        demand: 'High',
+        popularity: 88
     },
     {
         id: 47,
@@ -515,8 +609,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream',
         colleges: 10,
         avgSalary: '₹5.5 LPA',
+        description: 'Urban and regional planning',
         category: 'Planning',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 79
     },
     {
         id: 48,
@@ -526,8 +622,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream',
         colleges: 20,
         avgSalary: '₹5.8 LPA',
+        description: 'Hotel and hospitality management',
         category: 'Hotel Management',
-        demand: 'High'
+        demand: 'High',
+        popularity: 86
     },
     {
         id: 49,
@@ -537,8 +635,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream',
         colleges: 38,
         avgSalary: '₹6.5 LPA',
+        description: 'Computer applications and programming',
         category: 'Computer Applications',
-        demand: 'High'
+        demand: 'High',
+        popularity: 90
     },
     {
         id: 50,
@@ -548,8 +648,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream',
         colleges: 25,
         avgSalary: '₹4 LPA',
+        description: 'Vocational and skill-based education',
         category: 'Vocational',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 75
     },
     {
         id: 51,
@@ -559,8 +661,10 @@ const COURSES_DATA = [
         eligibility: 'Graduation in Any Stream',
         colleges: 30,
         avgSalary: '₹4.5 LPA',
+        description: 'Teaching and education',
         category: 'Education',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 80
     },
     {
         id: 52,
@@ -570,8 +674,10 @@ const COURSES_DATA = [
         eligibility: 'Graduation with Sports',
         colleges: 15,
         avgSalary: '₹4 LPA',
+        description: 'Physical education and sports',
         category: 'Education',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 76
     },
     {
         id: 53,
@@ -581,8 +687,10 @@ const COURSES_DATA = [
         eligibility: 'Graduation in Any Stream',
         colleges: 12,
         avgSalary: '₹3.5 LPA',
+        description: 'Library management and information science',
         category: 'Library Science',
-        demand: 'Low'
+        demand: 'Low',
+        popularity: 68
     },
     {
         id: 54,
@@ -592,8 +700,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream',
         colleges: 18,
         avgSalary: '₹5.5 LPA',
+        description: 'Journalism and mass communication',
         category: 'Journalism',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 82
     },
     {
         id: 55,
@@ -603,8 +713,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream, Music Talent',
         colleges: 10,
         avgSalary: '₹3.8 LPA',
+        description: 'Music theory and performance',
         category: 'Music',
-        demand: 'Low'
+        demand: 'Low',
+        popularity: 70
     },
     {
         id: 56,
@@ -614,8 +726,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream, Dance Talent',
         colleges: 8,
         avgSalary: '₹3.5 LPA',
+        description: 'Dance forms and choreography',
         category: 'Dance',
-        demand: 'Low'
+        demand: 'Low',
+        popularity: 69
     },
     {
         id: 57,
@@ -625,8 +739,10 @@ const COURSES_DATA = [
         eligibility: '10+2 Any Stream',
         colleges: 12,
         avgSalary: '₹5.8 LPA',
+        description: 'Fashion design and technology',
         category: 'Fashion',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 81
     },
     {
         id: 58,
@@ -636,8 +752,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology',
         colleges: 15,
         avgSalary: '₹5 LPA',
+        description: 'Eye care and vision science',
         category: 'Medical',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 79
     },
     {
         id: 59,
@@ -647,8 +765,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology',
         colleges: 10,
         avgSalary: '₹4.8 LPA',
+        description: 'Hearing and speech sciences',
         category: 'Medical',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 77
     },
     {
         id: 60,
@@ -658,8 +778,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology/Physics',
         colleges: 12,
         avgSalary: '₹5.2 LPA',
+        description: 'Medical imaging technology',
         category: 'Medical',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 80
     },
     {
         id: 61,
@@ -669,8 +791,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology',
         colleges: 20,
         avgSalary: '₹4.5 LPA',
+        description: 'Medical laboratory technology',
         category: 'Medical',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 78
     },
     {
         id: 62,
@@ -680,8 +804,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology',
         colleges: 15,
         avgSalary: '₹4.2 LPA',
+        description: 'Operation theatre management',
         category: 'Medical',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 76
     },
     {
         id: 63,
@@ -691,8 +817,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology',
         colleges: 10,
         avgSalary: '₹5.5 LPA',
+        description: 'Emergency medical care',
         category: 'Medical',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 81
     },
     {
         id: 64,
@@ -702,8 +830,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology',
         colleges: 12,
         avgSalary: '₹4.8 LPA',
+        description: 'Anesthesia technology',
         category: 'Medical',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 77
     },
     {
         id: 65,
@@ -713,8 +843,10 @@ const COURSES_DATA = [
         eligibility: '10+2 with Biology',
         colleges: 10,
         avgSalary: '₹5.0 LPA',
+        description: 'Cardiac care and technology',
         category: 'Medical',
-        demand: 'Medium'
+        demand: 'Medium',
+        popularity: 79
     }
 ];
 

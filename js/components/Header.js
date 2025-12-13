@@ -15,7 +15,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
     const menuItems = [
         { name: 'Home', icon: 'fa-house' },
         { name: 'Colleges', icon: 'fa-building-columns' },
-        { name: 'Scholarships', icon: 'fa-award' }, // NEW: Added Scholarships
+        { name: 'Scholarships', icon: 'fa-award' },
         { name: 'Exams', icon: 'fa-file-pen' },
         { name: 'Courses', icon: 'fa-graduation-cap' },
         { name: 'Predictor', icon: 'fa-chart-line' },
@@ -24,7 +24,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
     ];
     
     return (
-        <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass shadow-lg py-2' : 'glass py-4'}`}>
+        <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg py-2' : 'bg-white/95 backdrop-blur-sm py-4'}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center">
                     {/* Logo */}
@@ -85,7 +85,7 @@ const Header = ({ currentPage, setCurrentPage }) => {
                 
                 {/* Mobile Menu */}
                 {isMenuOpen && (
-                    <div className="lg:hidden glass rounded-2xl p-4 mt-2 shadow-lg animate-slide-up">
+                    <div className="lg:hidden bg-white rounded-2xl p-4 mt-2 shadow-lg animate-slide-up border border-gray-200">
                         {menuItems.map((item) => (
                             <button
                                 key={item.name}
